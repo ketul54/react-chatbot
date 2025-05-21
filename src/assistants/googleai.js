@@ -7,7 +7,7 @@ const googleai = new GoogleGenAI({
 export class Assistant {
   #chat;
 
-  constructor(model = "gemini-1.5-flash") {
+  constructor(model = "gemini-1.5-flash" + 1) {
     this.#chat = googleai.chats.create({ model });
   }
 
@@ -16,7 +16,7 @@ export class Assistant {
       const result = await this.#chat.sendMessage({ message: content });
       return result.text;
     } catch (error) {
-      throw error;
+      throw this.#parseError(error);
     }
   }
 
@@ -28,7 +28,22 @@ export class Assistant {
         yield chunk.text;
       }
     } catch (error) {
-      throw error;
+      throw this.#parseError(error);
+    }
+  }
+
+  #parseError(error) {
+    try {
+      // Extract and parse the outer error JSON from the message string
+      const [, outerErrorJSON] = error?.message?.split(" . ");
+      const outerErrorObject = JSON.parse(outerErrorJSON);
+
+      // Parse the nested stringified JSON from the outer error
+      const innerErrorObject = JSON.parse(outerErrorObject?.error?.message);
+
+      return innerErrorObject?.error;
+    } catch (parseError) {
+      return error;
     }
   }
 }
