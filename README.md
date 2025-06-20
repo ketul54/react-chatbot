@@ -30,7 +30,7 @@ In this course, you'll begin by building Chatbot UI, integrating OpenAI (ChatGPT
 
 ### b) Download code sources for specific lesson
 
-1. Open [commits](https://github.com/dvasyliev/react-ai-chatbot/commits/main/) page.
+1. Open [commits](https://github.com/ketul54/react-chatbot/commits/main/) page.
 
 2. Click on the "code" icon near the lesson you are interested.
 
