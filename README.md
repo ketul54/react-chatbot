@@ -38,7 +38,6 @@ In this course, you'll begin by building Chatbot UI, integrating OpenAI (ChatGPT
 
 4. Click on the green "Code" button to open a list and then click on the "Download ZIP" button to download a source code.
 
-<img width="472" alt="Screenshot 2024-06-25 at 17 34 44" src="https://github.com/dvasyliev/react-crash-course/assets/24624324/5e67c693-39fd-4262-b0ff-7aa81f439642">
 
 ## Open project in the VS code (code editor)
 
